@@ -1,0 +1,38 @@
+﻿@model ViewModels.ExpressViewModel;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+<section class="container my-5 mx-5">
+    <form asp-action="Express">
+        <div class="form-row my-2">
+            <div class="col">
+                <input asp-for="Cuenta" class="form-control" placeholder="Cuenta Origen" required />
+                <span asp-validation-for="Cuenta" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="form-row my-2">
+            <div class="col">
+                <input asp-for="Monto" class="form-control" placeholder="Monto " required />
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="form-row my-2">
+            <div class="col">
+                <input asp-for="Destino" class="form-control" placeholder="Cuenta Destino" required />
+                <span asp-validation-for="Destino" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-outline-success btn-block">Enviar</button>
+            </div>
+
+        </div>
+    </form>
+</section>
+

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ibanking</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">
+            <img src="~/img/dollar.png" height="30" width="30" />Ibanking App
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link"  asp-action="Index" asp-controller="Client" >Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pagos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" asp-action="Index" asp-controller="Pagos">Expreso</a>
+                            <a class="dropdown-item" asp-action="Tarjeta" asp-controller="Pagos">Tarjeta de Credito</a>
+                            <a class="dropdown-item" asp-action="Prestamo" asp-controller="Pagos">Prestamo</a>
+                            <div class="dropdown-item" ></div>
+                            <div class="dropdown-item">Beneficiarios</div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-action="Beneficiario" asp-controller="Client">Beneficiarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#" tabindex="-1">Avance de Efectivo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="#">Transferencia</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <a asp-controller="Account" asp-action="Logout" class="text-primary">Cerrar sesion(@User.Identity.Name)</a>
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

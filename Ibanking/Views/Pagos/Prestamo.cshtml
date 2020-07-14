@@ -1,0 +1,39 @@
+﻿@model ViewModels.ExpressViewModel;
+@{
+    ViewData["Title"] = "Prestamo";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+<section class="container my-5 mx-5">
+    <form asp-action="PagarPrestamo">
+        <div class="form-row my-2">
+            <div class="col">
+                <label class="col-form-label" asp-for="Cuenta">Selecciona un Prestamo</label>
+                <select asp-for="Cuenta" class="form-control" asp-items="@(new SelectList(Model.Productos,"Cuenta","Cuenta"))"></select>
+                <span asp-validation-for="Cuenta" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="form-row my-2">
+            <div class="col">
+                <input asp-for="Monto" class="form-control" placeholder="Monto " required />
+                <span asp-validation-for="Monto" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="form-row my-2">
+            <div class="col">
+                <input asp-for="Destino" class="form-control" placeholder="Cuenta que Pagara" required />
+                <span asp-validation-for="Destino" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col">
+                <button type="submit" class="btn btn-outline-success btn-block">Enviar</button>
+            </div>
+
+        </div>
+    </form>
+</section>
+

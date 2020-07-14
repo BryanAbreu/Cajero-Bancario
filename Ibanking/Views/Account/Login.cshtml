@@ -1,0 +1,84 @@
+﻿
+@model ViewModels.LoginViewModel;
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+    <link href="~/css/Login.css" rel="stylesheet" />
+    
+    <form asp-controller="Account" asp-action="Login" method="post" class="form-signin mb-5 text-center">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <img class="mb-4" src="~/img/dollar.png" alt="" width="72" height="72">
+                <h1 class="h3 mb-3 font-weight-normal">Ibanking App</h1>
+
+                <div asp-validation-summary="All" class="text-danger">
+
+                </div>
+
+                <div class="form-group">
+
+                    <input asp-for="User" class="form-control" placeholder="Usuario" autofocus>
+                    <span asp-validation-for="User" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+
+                    <input asp-for="Password" class="form-control" placeholder="Contraseña">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block my-2" type="submit">Sign in</button>
+                <button type="button" class="btn btn-lg btn-success btn-block my-0" data-toggle="modal" data-target="#exampleModal">
+                    Cambiar Contraseña
+                </button>
+                <hr />
+                <p class="text-dark mb-0">No tienes cuenta todavía?</p>
+                <a class="text-primary" asp-controller="Account" asp-action="Register">Crear una cuenta</a>
+            </div>
+           <div class="card-footer">
+               &copy; 2020 - Daniel Garcia
+           </div>
+        </div>
+    </form>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                   <form asp-controller="Account" asp-action="CambiarPassword" method="post">
+                       <div class="modal-body">
+                           <div asp-validation-summary="All">
+
+                           </div>
+                           <div class="form-group">
+                               <input asp-for="User" class="form-control" placeholder="Escribe tu usuario"  />
+
+                           </div>
+                           <div class="form-group">
+                               <input asp-for="Password" class="form-control" placeholder="Contraseña actual"  />
+                           </div>
+                           <div class="form-group">
+                               <input asp-for="newPassword" class="form-control" placeholder="Nueva contraseña"  />
+                           </div>
+                       </div>
+                       <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                           <button class="btn btn-info" type="submit">Cambiar</button>
+                       </div>
+                    </form>
+                
+                
+            </div>
+        </div>
+    </div>
+
+    
+        

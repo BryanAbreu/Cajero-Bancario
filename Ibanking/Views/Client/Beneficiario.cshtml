@@ -1,0 +1,43 @@
+﻿@model List<ViewModels.BeneficiarioViewModel>; 
+@{
+    ViewData["Title"] = "Beneficiario";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+    <section class="container my-3">
+        <h1 style="float:left">Beneficiarios de @User.Identity.Name</h1>
+        <form asp-action="BuscarBen" asp-controller="Client" style="float:right" method="post"  class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" name="busqueda" id="busqueda" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>numeroCuenta</th>
+                    <th>Opciones</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Id</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.Apellido</td>
+                        <td>@item.numeroCuenta</td>
+                        <td>
+                            <a class="btn btn-outline-primary" asp-action="DelBen" asp-route-id="@item.Id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+
+

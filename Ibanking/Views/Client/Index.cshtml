@@ -1,0 +1,37 @@
+﻿@model List<ViewModels.ProductoViewModel>;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+    <section class="container my-3">
+        <h1>Bienvenido - @User.Identity.Name</h1>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Producto</th>
+                    <th>Usuario</th>
+                    <th>Cuenta</th>
+                    <th>Monto</th>
+                    <th>Tipo</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@item.Id</td>
+                        <td>@item.Producto</td>
+                        <td>@item.Usuario</td>
+                        <td>@item.Cuenta</td>
+                        <td>@item.Monto</td>
+                        <td>@item.Tipo</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
